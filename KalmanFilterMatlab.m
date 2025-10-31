@@ -1,7 +1,7 @@
 %Both for Altitude and Vertical speed
 clear
 close all
-AltData = importdata("ALT.csv");
+AltData = importdata("/Users/denizakyuz/Desktop/ICARUS/AltimeterFilter/ALT.csv");
 AltData = AltData.data(:,2);
 p0 = 1013.25;
 AltData = 44330 * (1 - (AltData ./ p0).^0.190263) - 296;
@@ -77,5 +77,5 @@ vel_est = vel_est(25000:end-20000);
 
 for i=1:length(alt_est/10);
     disp("Altitude: " + round(alt_est(i*10),1) + "m      Vertical speed: " + round(vel_est(i),2) + "m/s")
-    pause(1/90*10);
+    %pause(1/90*10);
 end
